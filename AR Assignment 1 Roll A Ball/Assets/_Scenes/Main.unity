@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 576757193}
   - component: {fileID: 576757192}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Turn Right Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,8 +431,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1347331955}
-        m_MethodName: SwitchCamera
+      - m_Target: {fileID: 964882783}
+        m_MethodName: TurnRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -776,6 +776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 421422045}
+  turnDegree: 5
 --- !u!1 &1158040495
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +957,9 @@ MonoBehaviour:
   main: {fileID: 963194227}
   map: {fileID: 1806900847}
   current: {fileID: 0}
+  buttons:
+  - {fileID: 1395220163}
+  - {fileID: 576757192}
 --- !u!4 &1347331956
 Transform:
   m_ObjectHideFlags: 0
@@ -1060,7 +1064,7 @@ GameObject:
   - component: {fileID: 1395220164}
   - component: {fileID: 1395220163}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Turn Left Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1129,8 +1133,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1347331955}
-        m_MethodName: SwitchCamera
+      - m_Target: {fileID: 964882783}
+        m_MethodName: TurnLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1189,7 +1193,7 @@ GameObject:
   - component: {fileID: 1494863119}
   - component: {fileID: 1494863118}
   m_Layer: 5
-  m_Name: Button
+  m_Name: View Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,8 +9,9 @@ public class GameState : MonoBehaviour
     public Text scoreText;
     public Camera main;
     public Camera map;
-
     public Camera current;
+
+    public Button[] buttons;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +39,20 @@ public class GameState : MonoBehaviour
             current = map;
             main.gameObject.SetActive(false);
             map.gameObject.SetActive(true);
+            foreach(var button in buttons)
+            {
+                button.gameObject.SetActive(false);
+            }
         }
         else
         {
             current = main;
             map.gameObject.SetActive(false);
             main.gameObject.SetActive(true);
+            foreach (var button in buttons)
+            {
+                button.gameObject.SetActive(true);
+            }
         }
     }
 }
