@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,16 +23,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.touchCount > 0)
         {
-            RaycastHit hit;
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Touch touch = Input.GetTouch(0);
 
-            // Does the ray intersect any objects excluding the player layer
+            RaycastHit hit;
+            Ray ray = camera.ScreenPointToRay(touch.position);
+
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.collider.gameObject.name);
-                if(hit.collider.gameObject.CompareTag("Player") && Input.GetMouseButtonDown(0))
+                if (hit.collider.gameObject.CompareTag("Player") && touch.phase == TouchPhase.Began)
                 {
                     if (canJump)
                     {
@@ -49,12 +50,6 @@ public class PlayerController : MonoBehaviour
                     rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
                 }
             }
-        }
-
-        if (Input.GetButtonDown("Jump") && canJump)
-        {
-            rb.AddForce(new Vector3(0, jumpHeight, 0));
-            canJump = false;
         }
     }
 
