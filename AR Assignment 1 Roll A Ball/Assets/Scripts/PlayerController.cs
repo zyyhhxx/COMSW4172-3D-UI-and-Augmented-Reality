@@ -51,6 +51,33 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        if (Input.GetMouseButton(0))
+        {
+            RaycastHit hit;
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+
+            // Does the ray intersect any objects excluding the player layer
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.gameObject.CompareTag("Player") && Input.GetMouseButtonDown(0))
+                {
+                    if (canJump)
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x, jumpHeight, rb.velocity.z);
+                        canJump = false;
+                    }
+                }
+                else
+                {
+                    Vector3 pointHit = hit.point;
+                    var heading = pointHit - transform.position;
+                    var direction = heading / heading.magnitude;
+
+                    Vector3 movement = new Vector3(direction.x * speed, 0, direction.z * speed);
+                    rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
+                }
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
