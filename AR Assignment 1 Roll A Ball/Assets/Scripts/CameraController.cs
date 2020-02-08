@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
+    public float turnDegree = 10;
 
     private Vector3 offset;
 
@@ -23,5 +24,15 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         transform.position = player.transform.position + offset;
+    }
+
+    public void TurnLeft()
+    {
+        transform.Rotate(0, turnDegree, 0);
+    }
+
+    public void TurnRight()
+    {
+        transform.Rotate(0, -turnDegree, 0);
     }
 }
