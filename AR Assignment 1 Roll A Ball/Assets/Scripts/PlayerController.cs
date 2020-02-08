@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     public float speed = 1;
     public float jumpHeight = 1;
     public GameState state;
-    public Camera camera;
 
     private Rigidbody rb;
     private bool canJump = true;
@@ -28,7 +27,7 @@ public class PlayerController : MonoBehaviour
             Touch touch = Input.GetTouch(0);
 
             RaycastHit hit;
-            Ray ray = camera.ScreenPointToRay(touch.position);
+            Ray ray = state.current.ScreenPointToRay(touch.position);
 
             if (Physics.Raycast(ray, out hit))
             {
@@ -54,7 +53,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             RaycastHit hit;
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = state.current.ScreenPointToRay(Input.mousePosition);
 
             // Does the ray intersect any objects excluding the player layer
             if (Physics.Raycast(ray, out hit))

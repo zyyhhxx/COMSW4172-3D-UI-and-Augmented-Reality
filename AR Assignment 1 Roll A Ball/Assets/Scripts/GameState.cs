@@ -10,7 +10,7 @@ public class GameState : MonoBehaviour
     public Camera main;
     public Camera map;
 
-    private Camera current;
+    public Camera current;
 
     // Start is called before the first frame update
     void Start()
