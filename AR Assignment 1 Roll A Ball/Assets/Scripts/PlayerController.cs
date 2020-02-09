@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,31 +28,36 @@ public class PlayerController : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            RaycastHit hit;
-            Ray ray = state.current.ScreenPointToRay(touch.position);
-
-            if (Physics.Raycast(ray, out hit))
+            if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
             {
-                if (hit.collider.gameObject.CompareTag("Player") && touch.phase == TouchPhase.Began)
+                RaycastHit hit;
+                Ray ray = state.current.ScreenPointToRay(touch.position);
+
+                if (touch.phase != TouchPhase.Ended && Physics.Raycast(ray, out hit))
                 {
-                    if (canJump)
+                    if (hit.collider.gameObject.CompareTag("Player") && touch.phase == TouchPhase.Began)
                     {
-                        rb.velocity = new Vector3(rb.velocity.x, jumpHeight, rb.velocity.z);
-                        canJump = false;
+                        if (canJump)
+                        {
+                            rb.velocity = new Vector3(rb.velocity.x, jumpHeight, rb.velocity.z);
+                            canJump = false;
+                        }
+                    }
+                    else
+                    {
+                        Vector3 pointHit = hit.point;
+                        var heading = pointHit - transform.position;
+                        var direction = heading / heading.magnitude;
+
+                        Vector3 movement = new Vector3(direction.x * speed, 0, direction.z * speed);
+                        rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
                     }
                 }
-                else
-                {
-                    Vector3 pointHit = hit.point;
-                    var heading = pointHit - transform.position;
-                    var direction = heading / heading.magnitude;
-
-                    Vector3 movement = new Vector3(direction.x * speed, 0, direction.z * speed);
-                    rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
-                }
             }
+            else
+                return;
         }
-        if (Input.GetMouseButton(0))
+        if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButton(0))
         {
             RaycastHit hit;
             Ray ray = state.current.ScreenPointToRay(Input.mousePosition);
@@ -58,6 +65,7 @@ public class PlayerController : MonoBehaviour
             // Does the ray intersect any objects excluding the player layer
             if (Physics.Raycast(ray, out hit))
             {
+                Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.gameObject.CompareTag("Player") && Input.GetMouseButtonDown(0))
                 {
                     if (canJump)
