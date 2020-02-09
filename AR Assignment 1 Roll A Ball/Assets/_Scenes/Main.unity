@@ -1110,7 +1110,7 @@ PrefabInstance:
     - target: {fileID: 4464744641565393357, guid: d54b7461d09a53544871e1d9c7aff1e3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.331
+      value: -0.013
       objectReference: {fileID: 0}
     - target: {fileID: 4464744641565393357, guid: d54b7461d09a53544871e1d9c7aff1e3,
         type: 3}
@@ -2475,6 +2475,7 @@ GameObject:
   - component: {fileID: 1643742380}
   - component: {fileID: 1643742379}
   - component: {fileID: 1643742378}
+  - component: {fileID: 1643742381}
   m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
@@ -2556,6 +2557,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643742376}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1643742381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643742376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608b276449f39c046a12a434c76e4c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rate: 0.5
+  upperLimit: 2
+  lowerLimit: 0.5
 --- !u!1 &1756138047
 GameObject:
   m_ObjectHideFlags: 0
