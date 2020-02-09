@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
 {
-    public int score = 0;
+    private int score = 0;
     public Text scoreText;
     public Text timeText;
     public Camera main;
@@ -14,7 +14,7 @@ public class GameState : MonoBehaviour
     public Camera current;
 
     public Button[] buttons;
-    public float timeElapsed = 0;
+    private float timeElapsed = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,7 @@ public class GameState : MonoBehaviour
 
     public void UpdateScore()
     {
+        score += 1;
         scoreText.text = "Score: " + score.ToString();
     }
 

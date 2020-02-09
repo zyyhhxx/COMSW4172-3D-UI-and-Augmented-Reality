@@ -91,7 +91,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Pick Up"))
         {
-            state.score += 1;
             state.UpdateScore();
             other.gameObject.SetActive(false);
         }
