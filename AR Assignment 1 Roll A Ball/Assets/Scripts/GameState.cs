@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,16 +8,19 @@ public class GameState : MonoBehaviour
 {
     public int score = 0;
     public Text scoreText;
+    public Text timeText;
     public Camera main;
     public Camera map;
     public Camera current;
 
     public Button[] buttons;
+    public float timeElapsed = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreText.text = "Score: 0";
+        timeText.text = "Time: 0";
         current = main;
         map.gameObject.SetActive(false);
     }
@@ -24,7 +28,8 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        timeElapsed += Time.deltaTime;
+        timeText.text = "Time: " + Math.Round(timeElapsed, 1).ToString();
     }
 
     public void UpdateScore()
