@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectible : MonoBehaviour
+public class Rotation : MonoBehaviour
 {
+    public float speedX;
+    public float speedY;
+    public float speedZ;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +17,6 @@ public class Collectible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 0, 180) * Time.deltaTime);
+        transform.Rotate(new Vector3(speedX, speedY, speedZ) * Time.deltaTime);
     }
 }
