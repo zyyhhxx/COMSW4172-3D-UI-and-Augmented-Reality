@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour
 
                 if (touch.phase != TouchPhase.Ended && Physics.Raycast(ray, out hit))
                 {
-                    if (hit.collider.gameObject.CompareTag("Player") && touch.phase == TouchPhase.Began)
+                    if (hit.collider.gameObject.CompareTag("Player"))
                     {
-                        if (canJump)
+                        if (canJump && touch.phase == TouchPhase.Began)
                         {
                             rb.velocity = new Vector3(rb.velocity.x, jumpHeight, rb.velocity.z);
                             canJump = false;
@@ -66,9 +66,9 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.collider.gameObject.name);
-                if (hit.collider.gameObject.CompareTag("Player") && Input.GetMouseButtonDown(0))
+                if (hit.collider.gameObject.CompareTag("Player"))
                 {
-                    if (canJump)
+                    if (canJump && Input.GetMouseButtonDown(0))
                     {
                         rb.velocity = new Vector3(rb.velocity.x, jumpHeight, rb.velocity.z);
                         canJump = false;
