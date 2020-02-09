@@ -12,6 +12,7 @@ public class GameState : MonoBehaviour
     public Camera main;
     public Camera map;
     public Camera current;
+    public GameObject spawnPoint;
 
     public Button[] buttons;
     private float timeElapsed = 0;
