@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 1;
     public float jumpHeight = 1;
     public GameState state;
+    public TrailRenderer speedTrail;
 
     private Rigidbody rb;
     private bool canJump = true;
@@ -93,6 +94,12 @@ public class PlayerController : MonoBehaviour
         {
             state.UpdateScore();
             other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("Speed Up"))
+        {
+            speed = 4;
+            jumpHeight = 4;
+            speedTrail.enabled = true;
         }
     }
 
