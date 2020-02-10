@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BottomPlane : MonoBehaviour
+public class Bridge : MonoBehaviour
 {
-    public GameState state;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,14 @@ public class BottomPlane : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
-            other.gameObject.transform.position = state.spawnPoint.transform.position;
+        if(other.gameObject.CompareTag("Player"))
+            StartCoroutine(Drop());
+    }
+
+    IEnumerator Drop()
+    {
+        // suspend execution for 5 seconds
+        yield return new WaitForSeconds(3);
+        rb.useGravity = true;
     }
 }
