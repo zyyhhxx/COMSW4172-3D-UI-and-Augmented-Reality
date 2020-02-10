@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
@@ -16,6 +17,10 @@ public class GameState : MonoBehaviour
 
     public Button[] buttons;
     private float timeElapsed = 0;
+    public Boolean gameOver = false;
+
+    public Text final;
+    public Button restart;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +29,18 @@ public class GameState : MonoBehaviour
         timeText.text = "Time: 0";
         current = main;
         map.gameObject.SetActive(false);
+        restart.gameObject.SetActive(false);
+        final.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeElapsed += Time.deltaTime;
-        timeText.text = "Time: " + Math.Round(timeElapsed, 1).ToString();
+        if (!gameOver)
+        {
+            timeElapsed += Time.deltaTime;
+            timeText.text = "Time: " + Math.Round(timeElapsed, 1).ToString();
+        }
     }
 
     public void UpdateScore()
@@ -61,5 +71,18 @@ public class GameState : MonoBehaviour
                 button.gameObject.SetActive(true);
             }
         }
+    }
+
+    public void EndGame()
+    {
+        gameOver = true;
+        final.gameObject.SetActive(true);
+        final.text = "Congratulation! You win!";
+        restart.gameObject.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }
 }
