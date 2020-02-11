@@ -3220,6 +3220,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1451349569}
   - component: {fileID: 1451349570}
+  - component: {fileID: 1451349572}
+  - component: {fileID: 1451349571}
   m_Layer: 0
   m_Name: Rotating Floor
   m_TagString: Untagged
@@ -3258,8 +3260,37 @@ MonoBehaviour:
   speedY: 1
   speedZ: 0
   speed: 180
-  maxSpeed: 0
-  minSpeed: 0
+  maxSpeed: 270
+  minSpeed: 90
+--- !u!65 &1451349571
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451349568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 1.3, z: 0.8}
+  m_Center: {x: -0.42, y: 1, z: 0}
+--- !u!114 &1451349572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451349568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3617c9ca6952340afd9f1b4fd16871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: {fileID: 1347331955}
+  rotation: {fileID: 0}
+  resizing: {fileID: 0}
+  slider: {fileID: 783357358}
 --- !u!4 &1458136340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4165127769407307835, guid: 1659965dc619a784eaefb9aaef586ed8,
@@ -4030,6 +4061,7 @@ GameObject:
   - component: {fileID: 1643742379}
   - component: {fileID: 1643742378}
   - component: {fileID: 1643742381}
+  - component: {fileID: 1643742382}
   m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
@@ -4123,9 +4155,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608b276449f39c046a12a434c76e4c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rate: 0.5
+  rate: 1.25
   upperLimit: 2
   lowerLimit: 0.5
+--- !u!114 &1643742382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643742376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3617c9ca6952340afd9f1b4fd16871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: {fileID: 1347331955}
+  rotation: {fileID: 0}
+  resizing: {fileID: 0}
+  slider: {fileID: 783357358}
 --- !u!1001 &1696435074
 PrefabInstance:
   m_ObjectHideFlags: 0
