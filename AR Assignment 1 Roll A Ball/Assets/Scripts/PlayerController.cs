@@ -68,7 +68,6 @@ public class PlayerController : MonoBehaviour
                 // Does the ray intersect any objects excluding the player layer
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log(hit.collider.gameObject.name);
                     if (hit.collider.gameObject.CompareTag("Player"))
                     {
                         if (canJump && Input.GetMouseButtonDown(0))
