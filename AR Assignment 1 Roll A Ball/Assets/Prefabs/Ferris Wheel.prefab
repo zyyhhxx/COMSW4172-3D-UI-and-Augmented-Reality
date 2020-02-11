@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 534998763040178787}
   - component: {fileID: 534998763040178784}
-  m_Layer: 0
+  - component: {fileID: 2019926933453029751}
+  - component: {fileID: 3389981476312287324}
+  m_Layer: 2
   m_Name: Ferris Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,9 +49,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3efdf5692e228f4fba44976ad00331d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedX: 60
+  speedX: 1
   speedY: 0
   speedZ: 0
+  speed: 60
+  maxSpeed: 90
+  minSpeed: 30
+--- !u!65 &2019926933453029751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534998763040178786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 6, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3389981476312287324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534998763040178786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3617c9ca6952340afd9f1b4fd16871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: {fileID: 0}
+  rotation: {fileID: 0}
+  resizing: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!1001 &534998762232842102
 PrefabInstance:
   m_ObjectHideFlags: 0

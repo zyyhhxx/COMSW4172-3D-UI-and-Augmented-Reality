@@ -140,3 +140,6 @@ MonoBehaviour:
   speedX: 0
   speedY: 0
   speedZ: 180
+  speed: 360
+  maxSpeed: 360
+  minSpeed: 360

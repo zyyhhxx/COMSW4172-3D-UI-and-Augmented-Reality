@@ -21,6 +21,7 @@ public class GameState : MonoBehaviour
 
     public Text final;
     public Button restart;
+    public AdjustableObject currentAdjustable;
 
     // Start is called before the first frame update
     void Start()
@@ -84,5 +85,10 @@ public class GameState : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
+    }
+
+    public void AdjustObject(float value)
+    {
+        currentAdjustable.SliderChange(value);
     }
 }
