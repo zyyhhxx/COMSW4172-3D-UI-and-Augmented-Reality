@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bridge : MonoBehaviour
 {
     public Rigidbody rb;
+    public float delay = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,8 @@ public class Bridge : MonoBehaviour
     IEnumerator Drop()
     {
         // suspend execution for 5 seconds
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(delay);
+        rb.isKinematic = false;
         rb.useGravity = true;
     }
 }
