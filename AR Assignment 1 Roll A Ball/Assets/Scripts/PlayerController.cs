@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 1;
     public GameState state;
     public TrailRenderer speedTrail;
+    private float defaultSpeed;
+    private float defaultJumpHeight;
 
     private Rigidbody rb;
     private bool canJump = true;
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        defaultSpeed = speed;
+        defaultJumpHeight = jumpHeight;
     }
 
     // Update is called once per frame
@@ -99,14 +103,23 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Speed Up"))
         {
-            speed = 4;
-            jumpHeight = 4;
+            speed = defaultSpeed * 2;
+            jumpHeight = defaultJumpHeight * 2;
             speedTrail.enabled = true;
+            StartCoroutine(SpeedDown());
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         canJump = true;
+    }
+
+    private IEnumerator SpeedDown()
+    {
+        yield return new WaitForSeconds(5);
+        speed = defaultSpeed;
+        jumpHeight = defaultJumpHeight;
+        speedTrail.enabled = false;
     }
 }
