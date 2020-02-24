@@ -2,23 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This class is used to control platorm-related behaviors
+
 public class Platform : MonoBehaviour
 {
     public GameState state;
     public GameObject spawnPoint;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // When the player hits the platoform, set the respawn point
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))

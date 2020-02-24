@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private bool canJump = true;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,15 +25,16 @@ public class PlayerController : MonoBehaviour
         defaultJumpHeight = jumpHeight;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Only allow movement if game is not over
         if (!state.gameOver)
         {
             if (Input.touchCount > 0)
             {
                 Touch touch = Input.GetTouch(0);
 
+                // Touches on UI will not hit objects
                 if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
                 {
                     RaycastHit hit;
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
                     if (touch.phase != TouchPhase.Ended && Physics.Raycast(ray, out hit))
                     {
+                        // If ray casted on player, jump
                         if (hit.collider.gameObject.CompareTag("Player"))
                         {
                             if (canJump && touch.phase == TouchPhase.Began)
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
                                 canJump = false;
                             }
                         }
+                        // Else move
                         else
                         {
                             Vector3 pointHit = hit.point;
@@ -64,12 +66,13 @@ public class PlayerController : MonoBehaviour
                 else
                     return;
             }
+
+            // Only used when debugging on PC
             if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButton(0))
             {
                 RaycastHit hit;
                 Ray ray = state.current.ScreenPointToRay(Input.mousePosition);
 
-                // Does the ray intersect any objects excluding the player layer
                 if (Physics.Raycast(ray, out hit))
                 {
                     if (hit.collider.gameObject.CompareTag("Player"))
@@ -96,11 +99,13 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        // Eat coins
         if (other.gameObject.CompareTag("Pick Up"))
         {
             state.UpdateScore();
             other.gameObject.SetActive(false);
         }
+        // Speed up pad
         if (other.gameObject.CompareTag("Speed Up"))
         {
             speed = defaultSpeed * 2;
@@ -110,6 +115,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Reset jump
     private void OnCollisionEnter(Collision collision)
     {
         canJump = true;

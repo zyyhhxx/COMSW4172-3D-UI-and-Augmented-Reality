@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This class is used to rotate camera and keep the camera at a fixed distance from the player
+
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
@@ -9,18 +11,11 @@ public class CameraController : MonoBehaviour
 
     private Vector3 offset;
 
-    // Start is called before the first frame update
     void Start()
     {
         offset = transform.position - player.transform.position;
     }
 
-    private void Update()
-    {
-        
-    }
-
-    // Update is called once per frame
     void LateUpdate()
     {
         transform.position = player.transform.position + offset;

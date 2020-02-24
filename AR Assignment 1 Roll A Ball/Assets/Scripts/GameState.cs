@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// This class abstracts the state of the game
+
 public class GameState : MonoBehaviour
 {
     private int score = 0;
@@ -23,7 +25,6 @@ public class GameState : MonoBehaviour
     public Button restart;
     public AdjustableObject currentAdjustable;
 
-    // Start is called before the first frame update
     void Start()
     {
         scoreText.text = "Score: 0";
@@ -34,7 +35,6 @@ public class GameState : MonoBehaviour
         final.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!gameOver)

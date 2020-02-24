@@ -2,23 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This class is used to controll the bridge blocks
+
 public class Bridge : MonoBehaviour
 {
     public Rigidbody rb;
     public float delay = 1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // If touched by the player, start to count for falling
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Player"))

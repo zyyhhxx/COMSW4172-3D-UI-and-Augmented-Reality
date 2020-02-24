@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This is the class to rotate objects
+
 public class Rotation : MonoBehaviour
 {
     public bool speedX;
@@ -10,12 +12,6 @@ public class Rotation : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public float minSpeed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

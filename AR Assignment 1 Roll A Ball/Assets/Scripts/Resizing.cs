@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// This class is used to rescale objects
+
 public class Resizing : MonoBehaviour
 {
     public float rate = 0.5f;
@@ -9,13 +11,6 @@ public class Resizing : MonoBehaviour
     public float lowerLimit = 0.5f;
     private bool grow = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         float newScale;

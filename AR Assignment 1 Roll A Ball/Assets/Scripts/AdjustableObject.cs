@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// This class handles objects that can have their speed adjusted by a slider
+
 public class AdjustableObject : MonoBehaviour
 {
     public GameState state;
@@ -10,17 +12,11 @@ public class AdjustableObject : MonoBehaviour
     public Resizing resizing;
     public Slider slider;
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Get the reference to the script controlling the speed
         rotation = gameObject.GetComponent<Rotation>();
         resizing = gameObject.GetComponent<Resizing>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnCollisionEnter(Collision other)
@@ -37,6 +33,7 @@ public class AdjustableObject : MonoBehaviour
 
     private void ActivateSlider(GameObject go)
     {
+        // When the slider is activated, set the value of the slider according to the object's speed
         state.currentAdjustable = this;
         float ratio = 0.5f;
         if (!(rotation is null))
@@ -59,13 +56,12 @@ public class AdjustableObject : MonoBehaviour
         slider.gameObject.SetActive(false);
     }
 
+    // Apply the change by the value on the slider
     public void SliderChange(float value)
     {
-        Debug.Log(value);
         if (!(rotation is null))
         {
             rotation.speed = rotation.minSpeed + value * (rotation.maxSpeed - rotation.minSpeed);
-            Debug.Log(rotation.speed);
             foreach (var childrenRotation in GetComponentsInChildren<Rotation>())
             {
                 if(childrenRotation.gameObject.GetInstanceID() != gameObject.GetInstanceID())
