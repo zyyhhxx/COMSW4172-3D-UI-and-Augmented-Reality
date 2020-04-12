@@ -128,7 +128,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'tarmacMaterial
+  m_Name: 'AstronautMaterial
 
     13910'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
@@ -143,7 +143,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 661c9947bde948b79ae4ff175fea03ad, type: 3}
+        m_Texture: {fileID: 2800000, guid: 77fb44a366db5cb41b8c06649271f8e6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -463,7 +463,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.123825, y: 0, z: 0.0866775}
+      m_Extent: {x: 0.034925, y: 0, z: 0.060325}
   m_Shapes:
     vertices: []
     shapes: []
@@ -542,7 +542,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: f697fdbd00000000f983b1bd00000000ffff7f3f000000000000000000000000f697fdbd00000000f983b13d00000000ffff7f3f00000000000000000000803ff697fd3d00000000f983b1bd00000000ffff7f3f000000000000803f00000000f697fd3d00000000f983b13d00000000ffff7f3f000000000000803f0000803f
+    _typelessdata: 840d0fbd00000000591777bd000000000000803f000000000000000000000000840d0fbd000000005917773d000000000000803f00000000000000000000803f840d0f3d00000000591777bd000000000000803f000000000000803f00000000840d0f3d000000005917773d000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -719,14 +719,14 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 4bc5fd733b147194692297d23f623541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: tarmac
+  mTrackableName: Astronaut
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/S19_COMSW4172.xml
+  mDataSetPath: Vuforia/VuforiaMars_Images.xml
   mPreserveChildSize: 0
-  mAspectRatio: 0.7
+  mAspectRatio: 1.7272727
   mImageTargetType: 0
-  mWidth: 0.24765
-  mHeight: 0.173355
+  mWidth: 0.06985
+  mHeight: 0.12065
   mRuntimeTexture: {fileID: 0}
 --- !u!4 &1581225286
 Transform:
