@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 200
+  maxHealth: 250
   slider: {fileID: 0}
   fill: {fileID: 0}
 --- !u!54 &-6836585110929989873
