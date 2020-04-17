@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public GameObject wallPrefab;
     public MeshRenderer orbWand;
     public MeshRenderer arrowWand;
-    public string UIStatus = "Empty";
     public bool orbActive = false;
     public bool arrowActive = false;
 
@@ -28,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         orbActive = orbWand.enabled;
         arrowActive = arrowWand.enabled;
+        bc.UIStatus(arrowActive, orbActive);
     }
 
     IEnumerator RespawnRoutine(Vector3 pos, Quaternion rot, int respawnDelay)
