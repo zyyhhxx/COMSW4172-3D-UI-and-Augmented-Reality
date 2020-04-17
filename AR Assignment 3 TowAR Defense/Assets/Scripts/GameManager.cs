@@ -5,6 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject enemyBasePrefab;
+    public ButtonController bc;
+    public GameObject spawnPoint;
+    public GameObject towerPrefab;
+    public GameObject wallPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +33,15 @@ public class GameManager : MonoBehaviour
     public void Respawn(Vector3 pos, Quaternion rot, int respawnDelay)
     {
         StartCoroutine(RespawnRoutine(pos, rot, respawnDelay));
+    }
+
+    public void SpawnTower()
+    {
+        GameObject.Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation, GameObject.Find("Base Plane").transform);
+    }
+
+    public void SpawnWall()
+    {
+        GameObject.Instantiate(wallPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation, GameObject.Find("Base Plane").transform);
     }
 }
