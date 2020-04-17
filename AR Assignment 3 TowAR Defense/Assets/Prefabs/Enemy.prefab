@@ -29,6 +29,19 @@ MonoBehaviour:
   maxHealth: 50
   slider: {fileID: 0}
   fill: {fileID: 0}
+--- !u!65 &3414897457763782331
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922176256192383100}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.28, y: 0.5, z: 0.4}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1001 &4921235535705947590
 PrefabInstance:
   m_ObjectHideFlags: 0
