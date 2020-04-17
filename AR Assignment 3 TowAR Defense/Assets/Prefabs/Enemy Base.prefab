@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnDelay: 5
-  spawnDelay: 10
+  spawnDelay: 20
   gm: {fileID: 0}
   enemy: {fileID: 4922176256192383100, guid: 757ad99c8d5ba764ca4b99f16b97ab54, type: 3}
 --- !u!1001 &5103836738691077564
