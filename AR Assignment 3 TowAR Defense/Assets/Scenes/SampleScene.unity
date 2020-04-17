@@ -204,7 +204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1880454893}
-        m_MethodName: SpawnTower
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -635,8 +635,8 @@ MonoBehaviour:
   mPreserveChildSize: 0
   mAspectRatio: 3
   mImageTargetType: 0
-  mWidth: 0.0508
-  mHeight: 0.1524
+  mWidth: 0.083333336
+  mHeight: 0.25
   mRuntimeTexture: {fileID: 0}
 --- !u!4 &405406148
 Transform:
@@ -1144,7 +1144,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: a913d0bc00000000bf0e9cbd00000000ffff7f3f000000000000000000000000a913d0bc00000000bf0e9c3d00000000ffff7f3f00000000000000000000803fa913d03c00000000bf0e9cbd00000000ffff7f3f000000000000803f00000000a913d03c00000000bf0e9c3d00000000ffff7f3f000000000000803f0000803f
+    _typelessdata: abaa2abd00000000000000be00000000ffff7f3f000000000000000000000000abaa2abd000000000000003e00000000ffff7f3f00000000000000000000803fabaa2a3d00000000000000be00000000ffff7f3f000000000000803f00000000abaa2a3d000000000000003e00000000ffff7f3f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -1573,8 +1573,8 @@ MonoBehaviour:
   mPreserveChildSize: 0
   mAspectRatio: 3
   mImageTargetType: 0
-  mWidth: 0.0508
-  mHeight: 0.1524
+  mWidth: 0.083333336
+  mHeight: 0.25
   mRuntimeTexture: {fileID: 0}
 --- !u!4 &996764493
 Transform:
@@ -2682,10 +2682,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765869909}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.04
+  m_Radius: 0.06
   m_Center: {x: -0.0027006115, y: 0.296, z: 0.003675315}
 --- !u!23 &1765869911 stripped
 MeshRenderer:
@@ -2706,6 +2706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1854136873}
+  hit: {fileID: 0}
 --- !u!1 &1809274493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,7 +2888,6 @@ MonoBehaviour:
   enemyBasePrefab: {fileID: 5102864096282016488, guid: 4a826d88c1c51ec4d9a93b20763a4a9f,
     type: 3}
   bc: {fileID: 1687901427}
-  spawnPoint: {fileID: 0}
   towerPrefab: {fileID: 69947259899216529, guid: 5c76588a90dcfd045b23cbffc9604242,
     type: 3}
   wallPrefab: {fileID: 9137394471258569345, guid: 0b54b72697ceafb408352371fb37d8dd,
@@ -3126,7 +3126,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: a913d0bc00000000bf0e9cbd00000000ffff7f3f000000000000000000000000a913d0bc00000000bf0e9c3d00000000ffff7f3f00000000000000000000803fa913d03c00000000bf0e9cbd00000000ffff7f3f000000000000803f00000000a913d03c00000000bf0e9c3d00000000ffff7f3f000000000000803f0000803f
+    _typelessdata: abaa2abd00000000000000be00000000ffff7f3f000000000000000000000000abaa2abd000000000000003e00000000ffff7f3f00000000000000000000803fabaa2a3d00000000000000be00000000ffff7f3f000000000000803f00000000abaa2a3d000000000000003e00000000ffff7f3f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0

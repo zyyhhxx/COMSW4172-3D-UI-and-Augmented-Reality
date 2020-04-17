@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject enemyBasePrefab;
     public ButtonController bc;
-    public GameObject spawnPoint;
     public GameObject towerPrefab;
     public GameObject wallPrefab;
     public MeshRenderer orbWand;
@@ -72,6 +71,16 @@ public class GameManager : MonoBehaviour
 
     public void Select()
     {
-
+        if (orbActive)
+        {
+            if (ow.hit)
+            {
+                selected = ow.hit;
+                if (selected.GetComponent<Tower>())
+                    selectedType = Selectable.Tower;
+                else
+                    selectedType = Selectable.Wall;
+            }
+        }
     }
 }

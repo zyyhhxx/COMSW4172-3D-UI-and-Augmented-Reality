@@ -5,6 +5,7 @@ using UnityEngine;
 public class OrbWand : MonoBehaviour
 {
     public GameObject spawnPoint;
+    public GameObject hit;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +17,16 @@ public class OrbWand : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Tower")
+            hit = other.gameObject;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        hit = null;
     }
 }
