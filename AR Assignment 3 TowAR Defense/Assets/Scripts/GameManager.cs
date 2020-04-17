@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
     public GameObject spawnPoint;
     public GameObject towerPrefab;
     public GameObject wallPrefab;
+    public MeshRenderer orbWand;
+    public MeshRenderer arrowWand;
+    public string UIStatus = "Empty";
+    public bool orbActive = false;
+    public bool arrowActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +26,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        orbActive = orbWand.enabled;
+        arrowActive = arrowWand.enabled;
     }
 
     IEnumerator RespawnRoutine(Vector3 pos, Quaternion rot, int respawnDelay)

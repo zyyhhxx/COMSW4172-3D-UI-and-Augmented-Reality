@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusFilter: 1
+  StatusFilter: 0
   OnTargetFound:
     m_PersistentCalls:
       m_Calls: []
@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StatusFilter: 1
+  StatusFilter: 0
   OnTargetFound:
     m_PersistentCalls:
       m_Calls: []
@@ -1231,6 +1231,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133047706}
   m_CullTransparentMesh: 0
+--- !u!23 &1355318271 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2302216, guid: af9661a118d78d34498796cfeae92dfb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1945235452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1503739114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,6 +1657,12 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.04
   m_Center: {x: -0.0027006115, y: 0.296, z: 0.003675315}
+--- !u!23 &1765869911 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2303274, guid: ca8bafd9a86d1c84a9a66e519b492835,
+    type: 3}
+  m_PrefabInstance: {fileID: 1765869907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!21 &1875336383
 Material:
   serializedVersion: 6
@@ -1730,6 +1742,11 @@ MonoBehaviour:
     type: 3}
   wallPrefab: {fileID: 9137394471258569345, guid: 0b54b72697ceafb408352371fb37d8dd,
     type: 3}
+  orbWand: {fileID: 1765869911}
+  arrowWand: {fileID: 1355318271}
+  UIStatus: Empty
+  orbActive: 0
+  arrowActive: 0
 --- !u!43 &1919430994
 Mesh:
   m_ObjectHideFlags: 0
