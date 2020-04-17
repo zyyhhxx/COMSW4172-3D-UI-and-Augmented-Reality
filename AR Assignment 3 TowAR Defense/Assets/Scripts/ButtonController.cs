@@ -22,6 +22,7 @@ public class ButtonController : MonoBehaviour
     public GameObject rotate;
     public GameObject fire;
     public GameObject exit;
+    public GameObject select;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +69,7 @@ public class ButtonController : MonoBehaviour
                 rotate.SetActive(false);
                 fire.SetActive(false);
                 exit.SetActive(false);
+                select.SetActive(false);
                 break;
             case Status.Adding:
                 addTurret.SetActive(true);
@@ -77,6 +79,7 @@ public class ButtonController : MonoBehaviour
                 rotate.SetActive(false);
                 fire.SetActive(false);
                 exit.SetActive(false);
+                select.SetActive(true);
                 break;
         }
     }
