@@ -58,7 +58,6 @@ public class EnemyBase : MonoBehaviour
                 var distance = heading.magnitude;
                 var direction = heading / distance;
                 var fireDirection = new Vector3(direction.x, 1, direction.z);
-                Debug.Log((heading, distance, fireDirection));
                 var firedAmmo = GameObject.Instantiate(ammo, firePoint.transform.position, firePoint.transform.rotation, GameObject.Find("Base Plane").transform);
                 firedAmmo.GetComponent<Rigidbody>().AddForce(fireDirection * Random.Range(force * 0.5f, force), ForceMode.Impulse);
             }
