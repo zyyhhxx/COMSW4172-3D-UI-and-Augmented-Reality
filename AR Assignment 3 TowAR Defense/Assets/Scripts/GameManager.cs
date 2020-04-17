@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public enum Selectable
+    {
+        Tower,
+        Wall
+    }
+
     public GameObject enemyBasePrefab;
     public ButtonController bc;
     public GameObject spawnPoint;
@@ -11,8 +17,12 @@ public class GameManager : MonoBehaviour
     public GameObject wallPrefab;
     public MeshRenderer orbWand;
     public MeshRenderer arrowWand;
+    public OrbWand ow;
+    public ArrowWand aw;
     public bool orbActive = false;
     public bool arrowActive = false;
+    public GameObject selected;
+    public Selectable selectedType;
 
     // Start is called before the first frame update
     void Start()
@@ -43,11 +53,25 @@ public class GameManager : MonoBehaviour
 
     public void SpawnTower()
     {
-        GameObject.Instantiate(towerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation, GameObject.Find("Base Plane").transform);
+        if (orbActive)
+        {
+            var spawnTransform = ow.spawnPoint.transform;
+            GameObject.Instantiate(towerPrefab, spawnTransform.position, Quaternion.identity, GameObject.Find("Base Plane").transform);
+        }
+            
     }
 
     public void SpawnWall()
     {
-        GameObject.Instantiate(wallPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation, GameObject.Find("Base Plane").transform);
+        if (orbActive)
+        {
+            var spawnTransform = ow.spawnPoint.transform;
+            GameObject.Instantiate(wallPrefab, spawnTransform.position, Quaternion.identity, GameObject.Find("Base Plane").transform);
+        }
+    }
+
+    public void Select()
+    {
+
     }
 }

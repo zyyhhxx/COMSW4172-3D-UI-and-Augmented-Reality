@@ -1926,42 +1926,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264195483}
   m_CullTransparentMesh: 0
+--- !u!1 &1355318270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 164894, guid: af9661a118d78d34498796cfeae92dfb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1945235452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &1355318271 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2302216, guid: af9661a118d78d34498796cfeae92dfb,
     type: 3}
   m_PrefabInstance: {fileID: 1945235452}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1503739114
-GameObject:
+--- !u!114 &1355318272
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1503739115}
-  m_Layer: 0
-  m_Name: Spawn Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1503739115
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503739114}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2353, z: 0.125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1581225286}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1355318270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 219f818572813f547aeb9ec9521724f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1512327779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,7 +2159,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1731671246}
-  - {fileID: 1503739115}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2706,6 +2693,19 @@ MeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1765869907}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1765869912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765869909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1163039f353b27042a140ae6de719cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 1854136873}
 --- !u!1 &1809274493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,6 +2783,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809274493}
   m_CullTransparentMesh: 0
+--- !u!1 &1854136873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1854136874}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1854136874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854136873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0027, y: 0.332, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1765869908}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &1875336383
 Material:
   serializedVersion: 6
@@ -2857,15 +2887,19 @@ MonoBehaviour:
   enemyBasePrefab: {fileID: 5102864096282016488, guid: 4a826d88c1c51ec4d9a93b20763a4a9f,
     type: 3}
   bc: {fileID: 1687901427}
-  spawnPoint: {fileID: 1503739114}
+  spawnPoint: {fileID: 0}
   towerPrefab: {fileID: 69947259899216529, guid: 5c76588a90dcfd045b23cbffc9604242,
     type: 3}
   wallPrefab: {fileID: 9137394471258569345, guid: 0b54b72697ceafb408352371fb37d8dd,
     type: 3}
   orbWand: {fileID: 1765869911}
   arrowWand: {fileID: 1355318271}
+  ow: {fileID: 1765869912}
+  aw: {fileID: 1355318272}
   orbActive: 0
   arrowActive: 0
+  selected: {fileID: 0}
+  selectedType: 0
 --- !u!1 &1892357076
 GameObject:
   m_ObjectHideFlags: 0
