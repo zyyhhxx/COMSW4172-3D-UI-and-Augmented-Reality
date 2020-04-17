@@ -77,10 +77,33 @@ public class GameManager : MonoBehaviour
             {
                 selected = ow.hit;
                 if (selected.GetComponent<Tower>())
+                {
                     selectedType = Selectable.Tower;
+                    bc.status = ButtonController.Status.Tower;
+                }
                 else
+                {
                     selectedType = Selectable.Wall;
+                    bc.status = ButtonController.Status.Wall;
+                }
             }
         }
+    }
+
+    public void Exit()
+    {
+        if(bc.status == ButtonController.Status.Action)
+        {
+            if(selectedType == Selectable.Tower)
+            {
+                bc.status = ButtonController.Status.Tower;
+            }
+            else if (selectedType == Selectable.Wall)
+            {
+                bc.status = ButtonController.Status.Wall;
+            }
+        }
+        else
+            bc.status = ButtonController.Status.Adding;
     }
 }

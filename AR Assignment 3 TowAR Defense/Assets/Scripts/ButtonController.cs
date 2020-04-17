@@ -81,6 +81,16 @@ public class ButtonController : MonoBehaviour
                 exit.SetActive(false);
                 select.SetActive(true);
                 break;
+            case Status.Tower:
+                addTurret.SetActive(false);
+                addWall.SetActive(false);
+                translate.SetActive(false);
+                scale.SetActive(false);
+                rotate.SetActive(false);
+                fire.SetActive(true);
+                exit.SetActive(true);
+                select.SetActive(false);
+                break;
         }
     }
 }
