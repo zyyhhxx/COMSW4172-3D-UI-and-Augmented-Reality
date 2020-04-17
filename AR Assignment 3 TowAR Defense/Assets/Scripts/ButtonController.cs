@@ -57,6 +57,11 @@ public class ButtonController : MonoBehaviour
         }
     }
 
+    public void EnableFire(bool enabled)
+    {
+        fire.GetComponent<Button>().interactable = enabled;
+    }
+
     void SetButtons()
     {
         switch (status)

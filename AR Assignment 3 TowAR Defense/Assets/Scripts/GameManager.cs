@@ -37,6 +37,13 @@ public class GameManager : MonoBehaviour
         orbActive = orbWand.enabled;
         arrowActive = arrowWand.enabled;
         bc.UIStatus(arrowActive, orbActive);
+
+        // Set if the fire button can be used
+        if(selectedType == Selectable.Tower && bc.status == ButtonController.Status.Tower)
+        {
+            var tower = selected.GetComponent<Tower>();
+            bc.EnableFire(tower.secSinceFire >= tower.fireRate);
+        }
     }
 
     IEnumerator RespawnRoutine(Vector3 pos, Quaternion rot, int respawnDelay)
@@ -93,17 +100,17 @@ public class GameManager : MonoBehaviour
     public void Exit()
     {
         if(bc.status == ButtonController.Status.Action)
+            bc.status = ButtonController.Status.Wall;
+        else if(bc.status == ButtonController.Status.Wall || bc.status == ButtonController.Status.Tower)
         {
-            if(selectedType == Selectable.Tower)
-            {
-                bc.status = ButtonController.Status.Tower;
-            }
-            else if (selectedType == Selectable.Wall)
-            {
-                bc.status = ButtonController.Status.Wall;
-            }
-        }
-        else
+            selected = null;
             bc.status = ButtonController.Status.Adding;
+        }
+            
+    }
+
+    public void Fire()
+    {
+        selected.GetComponent<Tower>().Fire();
     }
 }
