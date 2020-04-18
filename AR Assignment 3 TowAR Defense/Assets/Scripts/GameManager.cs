@@ -38,11 +38,17 @@ public class GameManager : MonoBehaviour
         arrowActive = arrowWand.enabled;
         bc.UIStatus(arrowActive, orbActive);
 
-        // Set if the fire button can be used
         if(selectedType == Selectable.Tower && bc.status == ButtonController.Status.Tower)
         {
+            // Set if the fire button can be used
             var tower = selected.GetComponent<Tower>();
             bc.EnableFire(tower.secSinceFire >= tower.fireRate);
+
+            // Rotate the turret
+            if (orbActive)
+                tower.RotateTurretOrb(ow.spawnPoint.transform);
+            else if(arrowActive)
+                tower.RotateTurretArrow(aw.gameObject.transform.eulerAngles);
         }
     }
 
