@@ -84,7 +84,9 @@ public class GameManager : MonoBehaviour
             else if (currentAction == Action.Scale)
             {
                 if (orbActive)
-                    wall.ScaleOrb(ow.spawnPoint.transform);
+                    wall.Scale(ow.spawnPoint.transform);
+                else if(arrowActive)
+                    wall.Scale(aw.spawnPoint.transform);
             }
         }
     }

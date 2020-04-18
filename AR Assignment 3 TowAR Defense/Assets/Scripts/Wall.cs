@@ -34,7 +34,7 @@ public class Wall : MonoBehaviour
         transform.position = target.position;
     }
 
-    public void ScaleOrb(Transform target)
+    public void Scale(Transform target)
     {
         var heading = target.transform.position - transform.position;
         var distance = heading.magnitude;
