@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
             {
                 if(orbActive)
                     wall.RotateOrb(ow.spawnPoint.transform);
+                if(arrowActive)
+                    wall.RotateArrow(aw.gameObject.transform.eulerAngles);
             }
             else if (currentAction == Action.Translate)
             {

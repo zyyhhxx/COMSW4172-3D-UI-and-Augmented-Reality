@@ -26,7 +26,13 @@ public class Wall : MonoBehaviour
         transform.LookAt(target);
         var angle = transform.eulerAngles;
         var newAngle = new Vector3(0, angle.y, 0);
-        transform.eulerAngles = newAngle;
+        transform.localEulerAngles = newAngle;
+    }
+
+    public void RotateArrow(Vector3 direction)
+    {
+        var newAngle = new Vector3(0, direction.y, 0);
+        transform.localEulerAngles = newAngle;
     }
 
     public void TranslateOrb(Transform target)
