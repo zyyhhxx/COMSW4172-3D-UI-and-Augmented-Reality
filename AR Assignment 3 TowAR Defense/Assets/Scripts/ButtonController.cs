@@ -36,27 +36,6 @@ public class ButtonController : MonoBehaviour
         SetButtons();
     }
 
-    public void UIStatus(bool arrow, bool orb)
-    {
-        // When wands are both present or missing, ban all actions
-        if((arrow && orb) || (!arrow && !orb))
-        {
-            status = Status.Empty;
-        }
-        else
-        {
-            switch (status)
-            {
-                case Status.Empty:
-                    if (arrow ^ orb)
-                    {
-                        status = Status.Adding;
-                    }
-                    break;
-            }
-        }
-    }
-
     public void EnableFire(bool enabled)
     {
         fire.GetComponent<Button>().interactable = enabled;

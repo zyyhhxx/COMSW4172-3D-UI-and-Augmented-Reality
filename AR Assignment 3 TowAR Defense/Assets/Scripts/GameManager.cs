@@ -44,9 +44,17 @@ public class GameManager : MonoBehaviour
     {
         orbActive = orbWand.enabled;
         arrowActive = arrowWand.enabled;
-        bc.UIStatus(arrowActive, orbActive);
 
-        if(selectedType == Selectable.Tower && bc.status == ButtonController.Status.Tower)
+        // clear the UI if necessary
+        if ((arrowActive && orbActive) || (!arrowActive && !orbActive))
+        {
+            bc.status = ButtonController.Status.Empty;
+        }
+        else if (bc.status == ButtonController.Status.Empty)
+            if (arrowActive ^ orbActive)
+                bc.status = ButtonController.Status.Adding;
+
+        if (bc.status == ButtonController.Status.Tower)
         {
             // Set if the fire button can be used
             var tower = selected.GetComponent<Tower>();
