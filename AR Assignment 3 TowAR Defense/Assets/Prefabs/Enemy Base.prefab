@@ -44,7 +44,7 @@ MonoBehaviour:
   respawnDelay: 5
   spawnDelay: 20
   fireRate: 20
-  force: 1
+  force: 0.1
   gm: {fileID: 0}
   enemy: {fileID: 4922176256192383100, guid: 757ad99c8d5ba764ca4b99f16b97ab54, type: 3}
   ammo: {fileID: 5685817501611950909, guid: f4ea9b4fcd1ecb147a35e91824079ca6, type: 3}

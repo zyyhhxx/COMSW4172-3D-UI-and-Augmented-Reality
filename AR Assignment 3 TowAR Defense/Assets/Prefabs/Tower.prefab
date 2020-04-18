@@ -146,7 +146,7 @@ MonoBehaviour:
   ammoPrefab: {fileID: 5685817501611950909, guid: f4ea9b4fcd1ecb147a35e91824079ca6,
     type: 3}
   turret: {fileID: 7723534333996928431}
-  force: 2
+  force: 0.1
   fireRate: 2
   secSinceFire: 0
   tiltUpper: -10
