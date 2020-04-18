@@ -10,6 +10,13 @@ public class GameManager : MonoBehaviour
         Wall
     }
 
+    public enum Action
+    {
+        Translate,
+        Rotate,
+        Scale
+    }
+
     public GameObject enemyBasePrefab;
     public ButtonController bc;
     public GameObject towerPrefab;
@@ -22,6 +29,7 @@ public class GameManager : MonoBehaviour
     public bool arrowActive = false;
     public GameObject selected;
     public Selectable selectedType;
+    public Action currentAction;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +57,24 @@ public class GameManager : MonoBehaviour
                 tower.RotateTurretOrb(ow.spawnPoint.transform);
             else if(arrowActive)
                 tower.RotateTurretArrow(aw.gameObject.transform.eulerAngles);
+        }
+        else if (bc.status == ButtonController.Status.Action)
+        {
+            var wall = selected.GetComponent<Wall>();
+
+            if (currentAction == Action.Rotate)
+            {
+                if(orbActive)
+                    wall.RotateOrb(ow.spawnPoint.transform);
+            }
+            else if (currentAction == Action.Translate)
+            {
+
+            }
+            else if (currentAction == Action.Scale)
+            {
+
+            }
         }
     }
 
@@ -118,5 +144,23 @@ public class GameManager : MonoBehaviour
     public void Fire()
     {
         selected.GetComponent<Tower>().Fire();
+    }
+
+    public void Translate()
+    {
+        currentAction = Action.Translate;
+        bc.status = ButtonController.Status.Action;
+    }
+
+    public void Rotate()
+    {
+        currentAction = Action.Rotate;
+        bc.status = ButtonController.Status.Action;
+    }
+
+    public void Scale()
+    {
+        currentAction = Action.Scale;
+        bc.status = ButtonController.Status.Action;
     }
 }

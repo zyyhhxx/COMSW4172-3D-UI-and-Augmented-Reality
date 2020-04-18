@@ -2245,7 +2245,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1880454893}
-        m_MethodName: SpawnTower
+        m_MethodName: Rotate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2547,7 +2547,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1880454893}
-        m_MethodName: SpawnTower
+        m_MethodName: Scale
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2900,6 +2900,7 @@ MonoBehaviour:
   arrowActive: 0
   selected: {fileID: 0}
   selectedType: 0
+  currentAction: 0
 --- !u!1 &1892357076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2983,7 +2984,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1880454893}
-        m_MethodName: SpawnTower
+        m_MethodName: Translate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
