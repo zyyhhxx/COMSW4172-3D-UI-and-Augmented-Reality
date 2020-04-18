@@ -145,11 +145,12 @@ MonoBehaviour:
   firePoint: {fileID: 4882403353168375767}
   ammoPrefab: {fileID: 5685817501611950909, guid: f4ea9b4fcd1ecb147a35e91824079ca6,
     type: 3}
+  turret: {fileID: 7723534333996928431}
   force: 2
-  fireRate: 10
+  fireRate: 2
   secSinceFire: 0
-  tiltUpper: 45
-  tiltLower: 10
+  tiltUpper: -10
+  tiltLower: -45
 --- !u!1 &70647971586978587
 GameObject:
   m_ObjectHideFlags: 0
