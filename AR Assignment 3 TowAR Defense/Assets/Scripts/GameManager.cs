@@ -152,6 +152,23 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        if (arrowActive)
+        {
+            if (aw.hasHit && aw.hitObject.tag == "Tower")
+            {
+                selected = aw.hitObject;
+                if (selected.GetComponent<Tower>())
+                {
+                    selectedType = Selectable.Tower;
+                    bc.status = ButtonController.Status.Tower;
+                }
+                else
+                {
+                    selectedType = Selectable.Wall;
+                    bc.status = ButtonController.Status.Wall;
+                }
+            }
+        }
     }
 
     public void Exit()
