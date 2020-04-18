@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         if ((arrowActive && orbActive) || (!arrowActive && !orbActive))
         {
             bc.status = ButtonController.Status.Empty;
+            selected = null;
         }
         else if (bc.status == ButtonController.Status.Empty)
             if (arrowActive ^ orbActive)
@@ -106,7 +107,15 @@ public class GameManager : MonoBehaviour
             var spawnTransform = ow.spawnPoint.transform;
             GameObject.Instantiate(towerPrefab, spawnTransform.position, Quaternion.identity, GameObject.Find("Base Plane").transform);
         }
-            
+        else if (arrowActive)
+        {
+            if (aw.hasHit)
+            {
+                var impactPoint = aw.hit.point;
+                var newPosition = new Vector3(impactPoint.x, impactPoint.y + 0.01f, impactPoint.z);
+                GameObject.Instantiate(towerPrefab, newPosition, Quaternion.identity, GameObject.Find("Base Plane").transform);
+            }
+        }
     }
 
     public void SpawnWall()
@@ -115,6 +124,12 @@ public class GameManager : MonoBehaviour
         {
             var spawnTransform = ow.spawnPoint.transform;
             GameObject.Instantiate(wallPrefab, spawnTransform.position, Quaternion.identity, GameObject.Find("Base Plane").transform);
+        }
+        else if (aw.hasHit)
+        {
+            var impactPoint = aw.hit.point;
+            var newPosition = new Vector3(impactPoint.x, impactPoint.y + 0.01f, impactPoint.z);
+            GameObject.Instantiate(wallPrefab, newPosition, Quaternion.identity, GameObject.Find("Base Plane").transform);
         }
     }
 
