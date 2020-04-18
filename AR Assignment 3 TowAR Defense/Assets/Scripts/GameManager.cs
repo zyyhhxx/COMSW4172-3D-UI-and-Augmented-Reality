@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour
             {
                 if (orbActive)
                     wall.TranslateOrb(ow.spawnPoint.transform);
+                else if (arrowActive)
+                    wall.TranslateArrow(aw.spawnPoint.transform);
             }
             else if (currentAction == Action.Scale)
             {
@@ -196,6 +198,11 @@ public class GameManager : MonoBehaviour
     {
         currentAction = Action.Translate;
         bc.status = ButtonController.Status.Action;
+        if (arrowActive)
+        {
+            var wall = selected.GetComponent<Wall>();
+            wall.offset = aw.spawnPoint.transform.position - wall.transform.position;
+        }
     }
 
     public void Rotate()

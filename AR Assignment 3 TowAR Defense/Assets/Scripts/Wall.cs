@@ -8,6 +8,7 @@ public class Wall : MonoBehaviour
     public float scaleLower = 0.01f;
     public float lastDistance = 0;
     public float initialDistance = 0;
+    public Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,11 @@ public class Wall : MonoBehaviour
     public void TranslateOrb(Transform target)
     {
         transform.position = target.position;
+    }
+
+    public void TranslateArrow(Transform target)
+    {
+        transform.position = target.position - offset;
     }
 
     public void Scale(Transform target)
