@@ -77,11 +77,13 @@ public class GameManager : MonoBehaviour
             }
             else if (currentAction == Action.Translate)
             {
-
+                if (orbActive)
+                    wall.TranslateOrb(ow.spawnPoint.transform);
             }
             else if (currentAction == Action.Scale)
             {
-
+                if (orbActive)
+                    wall.ScaleOrb(ow.spawnPoint.transform);
             }
         }
     }
@@ -170,5 +172,19 @@ public class GameManager : MonoBehaviour
     {
         currentAction = Action.Scale;
         bc.status = ButtonController.Status.Action;
+        if (orbActive)
+        {
+            var heading = ow.spawnPoint.transform.position - transform.position;
+            var distance = heading.magnitude;
+            selected.GetComponent<Wall>().initialDistance = distance;
+            selected.GetComponent<Wall>().lastDistance = distance;
+        }
+        else if (arrowActive)
+        {
+            var heading = aw.transform.position - transform.position;
+            var distance = heading.magnitude;
+            selected.GetComponent<Wall>().initialDistance = distance;
+            selected.GetComponent<Wall>().lastDistance = distance;
+        }
     }
 }

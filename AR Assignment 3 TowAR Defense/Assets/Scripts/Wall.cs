@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
+    public float scaleUpper = 0.03f;
+    public float scaleLower = 0.01f;
+    public float lastDistance = 0;
+    public float initialDistance = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +29,24 @@ public class Wall : MonoBehaviour
         transform.eulerAngles = newAngle;
     }
 
-    public void TranslateOrb()
+    public void TranslateOrb(Transform target)
     {
-
+        transform.position = target.position;
     }
 
-    public void ScaleOrb()
+    public void ScaleOrb(Transform target)
     {
-
+        var heading = target.transform.position - transform.position;
+        var distance = heading.magnitude;
+        var deltaDistance = distance - lastDistance;
+        var oldscale = transform.localScale.x;
+        var newScale = oldscale + (scaleUpper - scaleLower) * deltaDistance / initialDistance;
+        if (newScale > scaleUpper)
+            newScale = scaleUpper;
+        else if(newScale < scaleLower)
+            newScale = scaleLower;
+        Debug.Log((distance, deltaDistance, newScale));
+        transform.localScale = new Vector3(newScale, newScale, newScale);
+        lastDistance = distance;
     }
 }

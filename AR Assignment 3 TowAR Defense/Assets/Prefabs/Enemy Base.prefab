@@ -43,7 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnDelay: 5
   spawnDelay: 20
-  fireRate: 10
+  fireRate: 20
   force: 1
   gm: {fileID: 0}
   enemy: {fileID: 4922176256192383100, guid: 757ad99c8d5ba764ca4b99f16b97ab54, type: 3}
